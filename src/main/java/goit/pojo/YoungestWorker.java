@@ -2,12 +2,12 @@ package goit.pojo;
 
 import java.time.LocalDate;
 
-public class YoungestEldestWorker {
+public class YoungestWorker {
     private String type;
     private String name;
     private LocalDate date;
 
-    public YoungestEldestWorker(String type, String name, LocalDate date) {
+    public YoungestWorker(String type, String name, LocalDate date) {
         this.type = type;
         this.name = name;
         this.date = date;
@@ -39,7 +39,7 @@ public class YoungestEldestWorker {
 
     @Override
     public String toString() {
-        return "YoungestEldestWorker{" +
+        return "YoungestWorker{" +
                 "type='" + type + '\'' +
                 ", name='" + name + '\'' +
                 ", date=" + date +

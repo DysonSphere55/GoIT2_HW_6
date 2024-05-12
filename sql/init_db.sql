@@ -1,4 +1,4 @@
-CREATE TABLE worker (
+CREATE TABLE IF NOT EXISTS worker (
     id IDENTITY PRIMARY KEY,
     name VARCHAR NOT NULL
         CHECK LENGTH(name) BETWEEN 2 AND 1000,
@@ -10,13 +10,13 @@ CREATE TABLE worker (
         CHECK (salary >= 100 AND salary <= 100000)
 );
 
-CREATE TABLE client (
+CREATE TABLE IF NOT EXISTS client (
     id IDENTITY PRIMARY KEY,
     name VARCHAR NOT NULL
         CHECK LENGTH(name) BETWEEN 2 AND 1000
 );
 
-CREATE TABLE project (
+CREATE TABLE IF NOT EXISTS project (
     id IDENTITY PRIMARY KEY,
     client_id BIGINT NOT NULL,
     name VARCHAR NOT NULL
@@ -26,10 +26,10 @@ CREATE TABLE project (
 );
 
 ALTER TABLE project
-ADD CONSTRAINT client_id_fk
+ADD CONSTRAINT IF NOT EXISTS client_id_fk
 FOREIGN KEY (client_id) REFERENCES client(id);
 
-CREATE TABLE project_worker (
+CREATE TABLE IF NOT EXISTS project_worker (
     project_id BIGINT NOT NULL,
     worker_id BIGINT NOT NULL,
     PRIMARY KEY (project_id, worker_id),
